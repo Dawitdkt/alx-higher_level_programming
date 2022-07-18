@@ -6,7 +6,7 @@ def safe_function(fct, *args):
     '''function that executes a function safely.'''
     try:
         result = fct(*args)
-    except Exception as ex:
-        sys.stderr.write(f"Exception: {ex} \n")
+    except Exception:
+        print("Exception: {}".format(sys.exc_info()[1]), file=sys.stderr)
         result = None
     return result
